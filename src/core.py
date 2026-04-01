@@ -48,7 +48,7 @@ def select_relevant_features(X: pd.DataFrame, y: pd.Series,
     return selected_features
 
 def plot_time_series(df: pd.DataFrame, output_path: Path, n_series: int = 3):
- """Plot sample time series """
+    """Plot sample time series """
     fig, axes = plt.subplots(n_series, 1, figsize=(10, 3 * n_series), sharex=True)
     
     if n_series == 1:
