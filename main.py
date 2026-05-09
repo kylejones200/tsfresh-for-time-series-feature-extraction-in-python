@@ -49,7 +49,7 @@ def main():
     plot_time_series(df, output_dir / 'time_series_sample.png',
                     config['output']['n_series_to_plot'])
     
-        fc_parameters = ComprehensiveFCParameters() if config['feature_extraction']['use_comprehensive'] else None
+    fc_parameters = ComprehensiveFCParameters() if config['feature_extraction']['use_comprehensive'] else None
     
     extracted_features = extract_tsfresh_features(
         df,
@@ -63,7 +63,7 @@ def main():
     logging.info(f"Feature names: {list(extracted_features.columns[:10])}...")
     
     if config['feature_extraction']['feature_selection']:
-                y = pd.Series(np.random.randint(0, 2, size=len(extracted_features)))
+        y = pd.Series(np.random.randint(0, 2, size=len(extracted_features)))
         selected_features = select_relevant_features(
             extracted_features,
             y,
@@ -77,5 +77,5 @@ if __name__ == "__main__":
     import numpy as np
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-    main()
+main()
 
