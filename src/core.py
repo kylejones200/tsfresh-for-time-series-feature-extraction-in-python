@@ -47,22 +47,23 @@ def select_relevant_features(X: pd.DataFrame, y: pd.Series,
     selected_features = select_features(X, y, fdr_level=fdr_level)
     return selected_features
 
-def plot_time_series(df: pd.DataFrame, output_path: Path, n_series: int = 3):
+def plot_time_series(df: pd.DataFrame, output_path: Path, n_series: int = 3, plot: bool = False):
     """Plot sample time series """
-    fig, axes = plt.subplots(n_series, 1, figsize=(10, 3 * n_series), sharex=True)
+    if plot:
+        fig, axes = plt.subplots(n_series, 1, figsize=(10, 3 * n_series), sharex=True)
     
-    if n_series == 1:
-        axes = [axes]
+        if n_series == 1:
+            axes = [axes]
     
-    for i, series_id in enumerate(df['id'].unique()[:n_series]):
-        series_data = df[df['id'] == series_id]
-        axes[i].plot(series_data['time'], series_data['value'], 
-                    color="#4A90A4", linewidth=1.2)
-        axes[i].set_xlabel("Time")
-        axes[i].set_ylabel("Value")
+        for i, series_id in enumerate(df['id'].unique()[:n_series]):
+            series_data = df[df['id'] == series_id]
+            axes[i].plot(series_data['time'], series_data['value'], 
+                        color="#4A90A4", linewidth=1.2)
+            axes[i].set_xlabel("Time")
+            axes[i].set_ylabel("Value")
     
-    plt.suptitle("Sample Time Series for Feature Extraction", 
-                fontsize=12, y=0.98, color='0.2')
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+        plt.suptitle("Sample Time Series for Feature Extraction", 
+                    fontsize=12, y=0.98, color='0.2')
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 
