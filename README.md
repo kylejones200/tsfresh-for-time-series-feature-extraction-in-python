@@ -33,10 +33,10 @@ Edit `config.yaml` to customize:
 ## TSFresh Features
 
 TSFresh automatically extracts hundreds of features:
-- **Statistical Features**: Mean, variance, skewness, kurtosis
-- **Temporal Features**: Autocorrelation, partial autocorrelation
-- **Frequency Features**: FFT coefficients, spectral entropy
-- **Complexity Features**: Approximate entropy, sample entropy
+- Statistical Features: Mean, variance, skewness, kurtosis
+- Temporal Features: Autocorrelation, partial autocorrelation
+- Frequency Features: FFT coefficients, spectral entropy
+- Complexity Features: Approximate entropy, sample entropy
 
 ## Feature Selection
 
