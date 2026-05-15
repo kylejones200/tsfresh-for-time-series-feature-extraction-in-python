@@ -3,7 +3,6 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from typing import Optional
 from tsfresh import extract_features, select_features
 from tsfresh.utilities.dataframe_functions import impute
 from tsfresh.feature_extraction import ComprehensiveFCParameters
@@ -26,7 +25,7 @@ def generate_time_series_data(n_series: int = 10, n_timesteps: int = 100, seed: 
 
 def extract_tsfresh_features(df: pd.DataFrame, column_id: str = 'id', 
                             column_sort: str = 'time', column_value: str = 'value',
-                            default_fc_parameters: Optional[dict] = None) -> pd.DataFrame:
+                            default_fc_parameters: dict | None = None) -> pd.DataFrame:
     """Extract features using TSFresh."""
     if default_fc_parameters is None:
         default_fc_parameters = ComprehensiveFCParameters()
