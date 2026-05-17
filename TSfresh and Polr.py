@@ -21,7 +21,7 @@ class LSTMModel(nn.Module):
         return x
 
 
-def main() -> None:
+def create_a_time_series_dataframe() -> None:
     date_range = pd.date_range(start="2023-01-01", periods=10, freq="D")
 
     data = pd.DataFrame({"value": range(10)}, index=date_range)
@@ -82,6 +82,8 @@ def main() -> None:
 
     print(df)
 
+
+def load_dataset() -> None:
     file_path = "north_dakota_oil_price.csv"
 
     data = pd.read_csv(file_path, parse_dates=["Date"])
@@ -125,6 +127,11 @@ def main() -> None:
     )
 
     print(df_polars.head())
+
+
+def main() -> None:
+    create_a_time_series_dataframe()
+    load_dataset()
 
 
 if __name__ == "__main__":
