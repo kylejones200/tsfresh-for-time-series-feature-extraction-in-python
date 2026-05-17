@@ -50,3 +50,11 @@ TSFresh automatically extracts hundreds of features:
 - Feature extraction can be computationally intensive for large datasets.
 - Comprehensive feature set includes 700+ features by default.
 - Feature selection requires target variable (y) for supervised learning.
+
+## Disclaimer
+
+Educational/demo code only. Not financial, safety, or engineering advice. Use at your own risk. Verify results independently before any production or operational use.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

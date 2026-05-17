@@ -62,28 +62,30 @@ def plot_time_series(
     df: pd.DataFrame, output_path: Path, n_series: int = 3, plot: bool = False
 ):
     """Plot sample time series"""
-    if plot:
-        fig, axes = plt.subplots(n_series, 1, figsize=(10, 3 * n_series), sharex=True)
+    if not plot:
+        return
 
-        if n_series == 1:
-            axes = [axes]
+    fig, axes = plt.subplots(n_series, 1, figsize=(10, 3 * n_series), sharex=True)
 
-        for i, series_id in enumerate(df["id"].unique()[:n_series]):
-            series_data = df[df["id"] == series_id]
-            axes[i].plot(
-                series_data["time"],
-                series_data["value"],
-                color="#4A90A4",
-                linewidth=1.2,
-            )
-            axes[i].set_xlabel("Time")
-            axes[i].set_ylabel("Value")
+    if n_series == 1:
+        axes = [axes]
 
-        plt.suptitle(
-            "Sample Time Series for Feature Extraction",
-            fontsize=12,
-            y=0.98,
-            color="0.2",
+    for i, series_id in enumerate(df["id"].unique()[:n_series]):
+        series_data = df[df["id"] == series_id]
+        axes[i].plot(
+            series_data["time"],
+            series_data["value"],
+            color="#4A90A4",
+            linewidth=1.2,
         )
-        plt.savefig(output_path, dpi=100, bbox_inches="tight")
-        plt.close()
+        axes[i].set_xlabel("Time")
+        axes[i].set_ylabel("Value")
+
+    plt.suptitle(
+        "Sample Time Series for Feature Extraction",
+        fontsize=12,
+        y=0.98,
+        color="0.2",
+    )
+    plt.savefig(output_path, dpi=100, bbox_inches="tight")
+    plt.close()
