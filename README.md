@@ -2,6 +2,14 @@
 
 This project demonstrates automated feature extraction from time series data using TSFresh.
 
+## Business context
+
+TSFresh automates feature extraction from time series data by calculating hundreds of statistical characteristics and selecting the most...
+
+TSFresh (Time Series Feature Extraction based on Scalable Hypothesis tests) is designed to automatically extract features from time series data. These features are useful for ML tasks like classification, regression, and anomaly detection. So, by automating feature extraction, TSFresh saves us time (in theory).
+
+Automating Feature Extraction goes through hundreds of features like mean, variance, skewness, and autocorrelation, and then filters out irrelevant or redundant features based on statistical tests. It works with univariate or multivariate time series data.
+
 ## Article
 
 Medium article: [TSFresh for Time Series Feature Extraction in Python](https://medium.com/towardsdev/tsfresh-for-time-series-feature-extraction-in-python-c4ee791f467c)
